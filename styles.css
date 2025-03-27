@@ -1,0 +1,116 @@
+/* Importing Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+    --primary-color: #4A90E2;
+    --secondary-color: #003366;
+    --accent-color: #FFD700;
+    --light-color: #ffffff;
+    --dark-color: #222831;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, #141e30, #243b55);
+    color: var(--light-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0px 5px 15px var(--shadow-color);
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
+.scanner-container {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px var(--shadow-color);
+}
+
+.scanner-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    background: var(--primary-color);
+    color: var(--light-color);
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0px 4px 12px var(--shadow-color);
+}
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+video {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px var(--shadow-color);
+}
+
+.results {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.result-list {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 10px var(--shadow-color);
+}
+
+.result-item {
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
