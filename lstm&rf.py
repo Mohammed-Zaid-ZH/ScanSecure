@@ -11,15 +11,17 @@ from sklearn.metrics import accuracy_score, classification_report
 from torch.utils.data import DataLoader, Dataset
 import joblib
 df = pd.read_csv('phishing_detection_dataset.csv')
-def preprocess_domain(domain):
-    domain = domain.split('.')[0].lower()
-    return domain
+def preprocess_domain(url):
+    url = re.sub(r'^https?://', '', url)  # Remove 'http://' or 'https://'
+    url = url.split('//')[0]  # Keep only the domain (remove path, if any)
+    return url.lower()
 df['processed_domain'] = df['domain'].apply(preprocess_domain)
 def extract_bigrams(domain):
     domain = re.sub(r'[^a-zA-Z0-9]', '', domain)
     return [domain[i:i+2] for i in range(len(domain)-1)]
 
 df['bigrams'] = df['processed_domain'].apply(lambda x: " ".join(extract_bigrams(x)))
+df['processed_domain'] = df['domain'].apply(preprocess_domain)
 X = df['bigrams']
 y = df['is_phishing']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
